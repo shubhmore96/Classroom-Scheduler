@@ -1,0 +1,26 @@
+Project Name: Classroom Scheduler
+
+Description-
+
+Classroom Scheduler is a platform used to keep track between students and teachers,
+it manages class timetable and assignments.It is a web based application where admin is responsible for creating timetable, granting permission to users.Teacher can raised
+issue regarding timetable by notifing admin,Admin will take necessary action regarding
+it.Students can track timetable and submit assignments, assigned by teachers.
+This project helps in centralizing data of students and teachers at one place.
+
+Actors-
+Admin,Teacher,Student
+
+Features- 
+
+>>Timetable 
+	Admin-Manages the timetable according to the availability of teacher.
+	Teacher-Can raise issue if the timetable not suited to need.
+	Student-Can view timetable and will be notified according to it.
+	
+>>Assignment
+	Teachers can upload assignment and students can submit their solution to it.
+	Student can filter out assignment on solved and unsolved basis.
+	
+>>Progress Bar
+	Admin can have knowledge about teachers covered syllabus and students submitted assignments.
