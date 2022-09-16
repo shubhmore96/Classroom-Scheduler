@@ -22,17 +22,17 @@ const Login=()=>{
         <>
         <Box sx={style}>
         <Link href="/AdminLogin">
-        <Button  sx={{ color: '#fff',display:{sm:'block'} }}>
+        <Button  sx={{ color: '#fff',display:{lg:'block'} }}>
         <Typography variant="h6" color={'#000'}>ClassCoordinator</Typography>
         </Button>
         </Link>
         <Link href="/TeacherLogin">
-        <Button  sx={{ color: '#fff',display:{sm:'block'} }}>
+        <Button  sx={{ color: '#fff',display:{lg:'block'} }}>
         <Typography variant="h6" color={'#000'}>Teacher</Typography>
         </Button>
         </Link>
         <Link href="/StudentLogin">
-        <Button  sx={{ color: '#fff',display:{sm:'block'} }}>
+        <Button  sx={{ color: '#fff',display:{lg:'block'} }}>
         <Typography variant="h6" color={'#000'}>Student</Typography>
         </Button>
         </Link>

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import {AppBar,Box,Button,Grid,Tab,Tabs,Toolbar, Typography,Modal, useTheme,useMediaQuery} from "@mui/material"
-import { HeaderData } from "./HeaderData";
+import {AppBar,Box,Button,Grid,Tab,Tabs,Toolbar, Typography,Modal, useTheme,useMediaQuery, Avatar} from "@mui/material"
+import { CommonHeaderData } from "./CommonHeaderData";
 import ImportContactsIcon from '@mui/icons-material/ImportContacts';
-import Login from "../Main/Login/Login";
-import NavbarDrawer from "./NavbarDrawer";
+import CommonNavbarDrawer from "./CommonNavbarDrawer";
+import PersonIcon from '@mui/icons-material/Person';
 
-const Header=()=>{
+const CommonHeader=()=>{
     const [value,setValue]=useState();
     const [open,setOpen]=useState(false);
     const theme=useTheme();
@@ -27,33 +27,37 @@ const Header=()=>{
                 <Typography>
                      <ImportContactsIcon />
                 </Typography>
-                <NavbarDrawer />
+                <CommonNavbarDrawer />
                 </>
                 ) 
-              : (<Grid container sx={{placeItems:'center'}}>
-                    <Grid item xs={6}>
+              : (
+              <Grid container sx={{placeItems:'center'}}>
+                    <Grid item xs={1}>
+                    <CommonNavbarDrawer />
+                    </Grid>
+                    {/* <Grid item xs={1} /> */}
+                    <Grid item xs={8} style={{ display: "flex", alignItems: "center" }}>
                         <Typography>
                             <ImportContactsIcon />
                         </Typography>
                     </Grid>
-                    <Grid item xs={5} display="flex">
+                    <Grid item xs={2} display="flex">
                         <Tabs indicatorColor="secondary" textColor="inherit" value={value} onChange={(e,val)=>setValue(val)}>
-                            {HeaderData.map((link,index)=>(
+                            {CommonHeaderData.map((link,index)=>(
                                 <Tab key={index} label={link.title} href={link.link}></Tab>
                             ))}
                         </Tabs>
                     </Grid>
                     <Grid item xs={1}>
                         <Box display="flex">
-                          <Button variant="contained" onClick={()=>setOpen(true)}>Login</Button>
+                          {/* <Button variant="contained" onClick={()=>setOpen(true)}>Profile</Button> */}
+                            <Avatar>
+                            <PersonIcon />
+                            </Avatar>
                         </Box>
-                        <Modal className="MuiModal-root" open={open} onClose={()=>setOpen(false)} onBackdropClick>
-                        <Box>
-                            <Login></Login>
-                        </Box>
-                        </Modal>
                     </Grid>
-                </Grid>)}
+                </Grid>
+                )}
             </Toolbar>
         </AppBar>
         </div>
@@ -61,4 +65,4 @@ const Header=()=>{
     )
 }
 
-export default Header;
+export default CommonHeader;

@@ -5,14 +5,14 @@ import AdminLogin from "../Main/Login/AdminLogin";
 import TeacherLogin from "../Main/Login/TeacherLogin";
 import StudentLogin from "../Main/Login/StudentLogin";
 import AdminSignUp from "../Main/SignUp/AdminSignUp";
-import About from "../Main/About/About";
-import Contact from "../Main/Contact/Contact";
 import ForgotPassword from "../Main/Login/ForgotPassword";
 // import { Provider } from "react-redux";
 // import store from './Store/reducer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import AdminDashboard from "../Dashboard/AdminDashboard";
+import AdminDashboard from "../Dashboard/AdminDashboard/AdminDashboard";
+import Login from "../Main/Login/Login";
+
 
 const App2=()=>{
     return(
@@ -23,8 +23,7 @@ const App2=()=>{
       <Routes>
         <Route path="/" element={<App />} />
         <Route index element={<App />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Contact" element={<Contact />} />
+        <Route path="/Login" element={<Login />} />
         <Route path="/AdminLogin" element={<AdminLogin />} />
         <Route path="/TeacherLogin" element={<TeacherLogin />} />
         <Route path="/StudentLogin" element={<StudentLogin />} />
