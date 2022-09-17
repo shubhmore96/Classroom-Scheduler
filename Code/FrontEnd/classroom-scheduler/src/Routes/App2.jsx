@@ -13,6 +13,8 @@ import "react-toastify/dist/ReactToastify.css";
 import AdminDashboard from "../Dashboard/AdminDashboard/AdminDashboard";
 import Login from "../Main/Login/Login";
 import Calender from "../Dashboard/Calender/Calender";
+import TodoList from "../Dashboard/Todo/TodoList";
+import "./Sodo.css";
 
 const App2 = () => {
   return (
@@ -31,6 +33,7 @@ const App2 = () => {
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
           <Route path="/AdminDashboard" element={<AdminDashboard />} />
           <Route path="/Calender" element={<Calender />} />
+          <Route path="/TodoList" element={<TodoList />} />
         </Routes>
         {/* </Provider> */}
       </BrowserRouter>
