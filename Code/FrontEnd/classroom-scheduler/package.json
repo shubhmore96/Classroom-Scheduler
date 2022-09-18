@@ -16,11 +16,16 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "date-fns": "^2.29.3",
+<<<<<<< HEAD
     "dayjs": "^1.11.5",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
     "react-big-calendar": "^1.5.0",
     "react-chartjs-2": "^4.3.1",
+=======
+    "react": "^18.2.0",
+    "react-big-calendar": "^1.5.0",
+>>>>>>> 6e7c6909b6e7b829eeccf1de93736f8aaa95f3f7
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
     "react-final-form": "^6.5.9",
