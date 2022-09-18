@@ -1,6 +1,16 @@
-import { Button, Grid, Paper,Card,CardActions,Typography,CardContent,CardMedia,Container } from "@mui/material";
+import {
+  Button,
+  Grid,
+  Paper,
+  Card,
+  CardActions,
+  Typography,
+  CardContent,
+  CardMedia,
+  Container,
+} from "@mui/material";
 import React from "react";
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 import { Box } from "@mui/system";
 import { CardData } from "./CardData";
 //import { createDispatchHook } from "react-redux";
@@ -8,57 +18,136 @@ import TeacherTable from "../../Tables/Teacher/TeacherTable";
 import CommonHeader from "../Components/CommonHeader";
 import Footer from "../../Footer/footer";
 import StudentTable from "../../Tables/Student/StudentTable";
-import SubjectTable from "../../Tables/Subject/SubjectTable"
+import SubjectTable from "../../Tables/Subject/SubjectTable";
+import AssignmentTable from "../../Tables/Assignmnet/AssignmentTable";
+import Barchart from "../../components/Barchart";
+import Piechart from "../../components/Piechart";
+import Linechart from "../../components/Linechart";
+// import Todo from "./pages/Todo";
 
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    paddingTop:"25%"
-  }));
+  background: "rgb(239, 239, 239)",
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: "center",
+  color: theme.palette.text.secondary,
+  paddingTop: "25%",
+}));
 
-
-const AdminDashboard=()=>{
-const cards=[1,2,3,4];
-    return(
-        <>
-        <div>
-           <CommonHeader />
-           <Box style={{marginTop:'100px'}}>
-            <Container className="cardGrid" maxWidth="md" style={{padding:'20px 0px' }}>
-                <Grid container spacing={3}>
-                    {CardData.map((card,keyVal)=>(
-                       <Grid item key={keyVal} xs={12} sm={6} md={4} lg={3}>
-                        <Card className="card" style={{height:'100%',display:'flex',flexDirection:'column',justifyContent:'center'}}>
-                        <CardMedia sx={{paddingLeft:"40%"}}>{card.icon} </CardMedia> 
-                       <CardContent className="cardContent" style={{flexGrow:'1'}}>
-                            <Typography gutterBottom variant="h5">
-                                {card.title}
-                            </Typography>
-                            <Typography sx={{paddingLeft:"40%"}}>
-                               {card.quant}
-                            </Typography>
-                        </CardContent>
-                        </Card>
-                    </Grid>
-                    ))}
+const AdminDashboard = () => {
+  const cards = [1, 2, 3, 4];
+  return (
+    <>
+      <CommonHeader />
+      <div
+        className="admin-dashboard"
+        style={{
+          background: "rgb(239, 239, 239)",
+          padding: "0px",
+          paddingTop: 10,
+        }}
+      >
+        <Box style={{ marginTop: "100px" }}>
+          <Container className="cardGrid">
+            <Grid
+              container
+              spacing={30}
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-evenly",
+              }}
+            >
+              {CardData.map((card, keyVal) => (
+                <Grid item key={keyVal} xs={12} sm={6} md={4} lg={3}>
+                  <Card
+                    className="card"
+                    style={{
+                      width: 210,
+                      height: 210,
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <CardMedia
+                      sx={{
+                        paddingTop: "20%",
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "center",
+                      }}
+                    >
+                      {card.icon}{" "}
+                    </CardMedia>
+                    <CardContent
+                      className="cardContent"
+                      style={{ flexGrow: "1" }}
+                    >
+                      <Typography gutterBottom variant="h5">
+                        {card.title}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          display: "flex",
+                          flexDirection: "row",
+                          justifyContent: "center",
+                        }}
+                      >
+                        {card.quant}
+                      </Typography>
+                    </CardContent>
+                  </Card>
                 </Grid>
-            </Container>
+              ))}
+            </Grid>
+          </Container>
+        </Box>
+
+        {/* Subject Data*/}
+        <Box p={5} sx={{ mt: 10 }}>
+          <Paper elevation={3}>
+            <Box p={5}>
+              <Typography
+                variant="h3"
+                color={"GrayText"}
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  mt: 4,
+                  mb: 0,
+                }}
+              >
+                Subject Data
+              </Typography>
+              <SubjectTable />
             </Box>
-            <Typography variant="h3" color={'GrayText'} sx={{paddingLeft:'40%',mt:4, mb: 0 }}>Teachers Data</Typography>
-            <TeacherTable />
-            <Typography variant="h3" color={'GrayText'} sx={{paddingLeft:'40%',mt:4, mb: 0 }}>Students Data</Typography>
-            <StudentTable />
-            <Typography variant="h3" color={'GrayText'} sx={{paddingLeft:'40%',mt:4, mb: 0 }}>Subject Data</Typography>
-            <SubjectTable />
-            <Typography variant="h3" color={'GrayText'} sx={{paddingLeft:'40%',mt:4, mb: 0 }}>Assignment Data</Typography>
-            <SubjectTable />
-            <Footer sx={{ mt: 2, mb: 0 }} />
-        </div>
-        </>
-    )
-}
+          </Paper>
+        </Box>
+
+        <Grid
+          container
+          spacing={2}
+          sx={{
+            mt: 5,
+            mb: 0,
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-evenly",
+          }}
+        >
+          <Grid item xs={12} md={6}>
+            <Linechart />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Piechart />
+          </Grid>
+        </Grid>
+        <Footer sx={{ mt: 2, mb: 0 }} />
+      </div>
+    </>
+  );
+};
 
 export default AdminDashboard;

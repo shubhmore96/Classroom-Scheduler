@@ -10,8 +10,8 @@ export default function AssignmentTable() {
     rows={rows} 
     columns={columns} 
     height={400} 
-    width={'75%'} 
-    padding={'12.5%'} 
+    width={'60%'} 
+    padding={'20%'} 
     color={'rgb(114, 255, 255)'} 
     />
     </>

@@ -24,7 +24,7 @@ export const columns = [
         headerClassName: 'theme--header',
         headerAlign: 'center',
         headerName: "Assigned Date",
-        width: 90,
+        width: 120,
         editable: true,
       },
       {
@@ -32,7 +32,7 @@ export const columns = [
         headerClassName: 'theme--header',
         headerAlign: 'center',
         headerName: "Submission Date",
-        width: 90,
+        width: 140,
         editable: true,
       },
   ];

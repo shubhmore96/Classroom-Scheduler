@@ -11,7 +11,7 @@ const NavbarDrawer=()=>{
         <>
         <Drawer 
         PaperProps={{
-          sx:{backgroundColor:"whitesmoke"}  
+          sx:{backgroundColor:"rgb(255, 250, 231)"}  
         }}
         open={data} 
         onClose={()=>setData(false)}

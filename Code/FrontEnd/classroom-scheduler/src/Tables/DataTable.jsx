@@ -16,13 +16,12 @@ export default function DataTable(props) {
       },
     }}>
       <DataGrid
+        getRowId={(user)=>user.teacher_id}
         rows={props.rows}
         columns={props.columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
         checkboxSelection
-        //disableSelectionOnClick
-        //experimentalFeatures={{ newEditingApi: true }}
         onCellEditCommit={(params)=>console.log(params)}
       />
     </Box>

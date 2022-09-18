@@ -1,6 +1,6 @@
 
 export const columns = [
-  { field: "id", headerName: "ID", width: 90 },
+  { field: "teacher_id", headerName: "ID", width: 90 },
   {
     field: "first_name",
     headerClassName: 'theme--header',

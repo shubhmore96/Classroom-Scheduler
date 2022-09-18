@@ -1,5 +1,5 @@
 import React from 'react';
-import {Avatar,Button,CssBaseline,TextField,FormControlLabel,Checkbox,Link,Grid,Box,Typography,Container} from '@mui/material';
+import {Avatar,Button,CssBaseline,TextField,FormControlLabel,Checkbox,Link,Grid,Box,Typography,Container, Paper} from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Copyright from '../../Footer/Copyright';
@@ -9,8 +9,10 @@ import { useNavigate } from "react-router"
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {adminLogin} from '../../Services/user-service'
+import { display } from '@mui/system';
 
 const theme = createTheme();
+
 
 export default function AdminLogin() {
 
@@ -45,11 +47,28 @@ export default function AdminLogin() {
     }).catch((error)=>{
       console.log(error);
       console.log('Error Log');
+      toast.error("Please input valid credentials");
     })
 
   };
 
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 600,
+    height:600,
+    bgcolor: "rgb(255, 250, 231)",
+    borderRadius:2,
+    p: 2,
+    flex: 1,
+    flexDirection: "center",
+  };
+
   return (
+    <>
+    <Box  sx={style}>
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -120,5 +139,7 @@ export default function AdminLogin() {
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
+    </Box> 
+    </>
   );
 }

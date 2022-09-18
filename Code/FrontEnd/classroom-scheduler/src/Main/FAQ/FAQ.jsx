@@ -14,15 +14,15 @@ const FAQ=()=>{
         <>
         <Box>
         <div className="section-title" id="faq">
-          <Typography variant="h2" align="center" sx={{padding:'50px'}} color={'GrayText'}>
+          <Typography variant="h2" align="center" sx={{padding:'50px'}} color={'GrayText'} fontSize={'5rem'}>
             Frequently Asked Questions
             </Typography>
         </div>
               { FAQData.map((link,val)=>(
               <div>
-                <Accordion expanded={expanded === link.number} onChange={handleChange(link.number)}>
-                 <AccordionSummary expandIcon={<ExpandMoreIcon />} key={val}>
-                    <Typography>
+                <Accordion expanded={expanded === link.number} onChange={handleChange(link.number)} key={val}>
+                 <AccordionSummary expandIcon={<ExpandMoreIcon />} >
+                    <Typography fontSize={'20px'}>
                         {link.question}
                     </Typography>
                 </AccordionSummary>
