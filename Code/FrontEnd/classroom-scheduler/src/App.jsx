@@ -3,14 +3,14 @@ import Header from "./Header/Header"
 import Footer from "./Footer/footer"
 import Main from "./Main/main"
 import { CssBaseline } from "@mui/material";
-import "./index.css"
+import "./index.scss"
 
 
 const App=()=>{
     return(
         <>
         <CssBaseline />
-        <div>
+        <div className="main" style={{background:'rgb(239, 239, 239)'}}>
         <Header></Header>
         <Main></Main>
         <Footer></Footer>

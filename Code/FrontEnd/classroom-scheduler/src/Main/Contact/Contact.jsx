@@ -18,13 +18,14 @@ const Contact=()=>{
                 height: 'auto',
                 py: 2,
                 px: 5,
+                color:'rgb(255, 174, 109)',
             }}
         >
             <Typography variant="h4" component="span">
                 Got any questions? Need help?
             </Typography>
         </Button>
-        <Typography variant="subtitle1" sx={{ my: 3 }}>
+        <Typography variant="subtitle1" sx={{ my: 3 }} fontSize={'20px'}>
             We are here to help. Get in touch!
         </Typography>
         <Box

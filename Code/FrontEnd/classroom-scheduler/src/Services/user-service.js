@@ -15,3 +15,11 @@ export const teacherLogin=(user)=>{
 export const studentLogin=(user)=>{
     return myAxios.post('/student/Login',user).then((response)=>response.data)
 }
+
+export const getTeacherData=(user)=>{
+    return myAxios.get('/teacher/getByCoordinator/1',user).then((response)=>response.data)
+}
+
+export const getSubjectData=(user)=>{
+    return myAxios.get('/subject/getAll').then((response)=>response.data)
+}
