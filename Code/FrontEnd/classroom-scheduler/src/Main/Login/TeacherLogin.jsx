@@ -37,6 +37,7 @@ export default function TeacherLogin() {
     teacherLogin(user).then((response)=>{
       console.log("success log");
       toast.success("user login successfully");
+      sessionStorage.setItem('teacher',JSON.stringify(response));
       navigate("/TeacherDashboard")
     }).catch((error)=>{
       console.log(error);
@@ -67,36 +68,36 @@ export default function TeacherLogin() {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 1,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 0.5, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Teacher
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <label htmlFor="username">Email Address</label>
             <TextField
               margin="normal"
               required
               fullWidth
               id="email"
-              label="Email Address"
               name="username"
               autoComplete="email"
               onChange={handleChange}
               autoFocus
             />
+            <label htmlFor="password">Password</label>
             <TextField
               margin="normal"
               required
               fullWidth
               name="password"
-              label="Password"
               type="password"
               id="password"
               autoComplete="current-password"

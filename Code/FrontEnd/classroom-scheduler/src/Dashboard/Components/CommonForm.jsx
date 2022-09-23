@@ -4,7 +4,24 @@ import React, { useState } from "react";
 import { TeacherColumn } from "../AdminDashboard/Registration/TeacherData";
 
 const CommonForm=()=>{
-    return(
+  const styles = {
+    'input-label': {
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      width: '100%',
+      color: 'red'
+    },
+  
+    'input': {
+      '&::placeholder': {
+        textOverflow: 'ellipsis !important',
+        color: 'blue'
+      }
+    }
+  };
+
+  return(
     <>
     <div >
     <Box
@@ -17,6 +34,7 @@ const CommonForm=()=>{
             {TeacherColumn.map((data,index)=> (<Grid item xs={12} md={6} lg={3} key={index}>
             <TextField
             id="outlined"
+            className="input"
             placeholder={data.name}
             type={data.type}
             InputProps={{
@@ -26,7 +44,7 @@ const CommonForm=()=>{
             </InputAdornment>
             ),
             }}
-            variant="outlined"
+            variant="filled"
             sx={{width:'200'}}
             />
             </Grid>))}

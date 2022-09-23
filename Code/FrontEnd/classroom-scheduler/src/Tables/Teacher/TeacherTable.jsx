@@ -1,59 +1,118 @@
-import * as React from "react";
-import { rows, columns } from "./TeacherData";
-import DataTable from "../DataTable";
-import { Paper, Box, Button } from "@mui/material";
-import { useNavigate } from "react-router";
+import React, { useState } from "react";
+import Swal from "sweetalert2";
+
+import TeacherTableHeader from "./TeacherTableHeader";
+import TeacherList from "./TeacherList";
+import TeacherAdd from "./TeacherAdd";
+import TeacherEdit from "./TeacherEdit";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { adminLogin, getTeacherData } from "../../Services/user-service";
-import { setDate } from "date-fns";
-import { DataGrid } from "@mui/x-data-grid";
+import { TeacherData } from "./TeacherInfoData";
+import { deleteTeacherData, getTeacherData } from "../../Services/user-service";
+import { useEffect } from "react";
+import { Box, Paper } from "@mui/material";
 
-export default function TeacherTable() {
-  const [rows, setRows] = React.useState([]);
+function TeacherTable() {
+  const [rows, setRows] = useState([]);
+  const [selectedRow, setSelectedRow] = useState(null);
+  const [isAdding, setIsAdding] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  const handleSubmit = (event) => {
-    console.log("working");
+ // const adminData = JSON.parse(sessionStorage.getItem("admin"));
+
+  useEffect(() => {
     getTeacherData(rows)
       .then((response) => {
-        console.log(response);
-        toast.success("user got successfully");
-        console.log(response.at(0).first_name);
+        console.log("rows: ", response);
         setRows(response);
+        // sessionStorage.setItem("teacher", JSON.stringify(response));
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
         console.log("Error Log");
         toast.error("Please input valid credentials");
       });
+  }, []);
+
+  const handleEdit = (id) => {
+    const [data] = rows.filter((data) => data.teacher_id === id);
+    console.log("edit:", data);
+    setSelectedRow(data);
+    setIsEditing(true);
+  };
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      icon: "warning",
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel!",
+    }).then((result) => {
+      if (result.value) {
+        const [data] = rows.filter((data) => data.teacher_id === id);
+        console.log("delete:", data);
+
+        deleteTeacherData(data.teacher_id)
+          .then((response) => {
+            console.log(response);
+            window.location.reload();
+          })
+          .catch((error) => {
+            console.log(error);
+            console.log("Error Log");
+          });
+
+        Swal.fire({
+          icon: "success",
+          title: "Deleted!",
+          text: `${data.first_name} ${data.last_name}'s data has been deleted.`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
+        setRows(rows.filter((data) => data.id !== id));
+      }
+    });
   };
 
   return (
-    <>
-      <Button onClick={handleSubmit}>Get Data</Button>
-
-      <Box
-        sx={{
-          mt: 4,
-          mb: 0,
-          paddingLeft: "12.5%",
-          height: 400,
-          width: "80%",
-          "& .theme--header": {
-            backgroundColor: "rgb(114, 255, 255)",
-          },
-        }}
-      >
-        <DataGrid
-          getRowId={(user) => user.teacher_id}
+    <div className="container">
+      {/* List */}
+      {!isAdding && !isEditing && (
+        <>
+          <Box mt={5}>
+            <p>Home / TeacherData</p>
+            <Paper elevation={3}>
+              <Box  p={2} height={250+150*rows.length}>
+                <TeacherTableHeader setIsAdding={setIsAdding} />
+                <TeacherList
+                  rows={rows}
+                  handleEdit={handleEdit}
+                  handleDelete={handleDelete}
+                />
+              </Box>
+            </Paper>
+          </Box>
+        </>
+      )}
+      {/* Add */}
+      {isAdding && (
+        <TeacherAdd rows={rows} setRows={setRows} setIsAdding={setIsAdding} />
+      )}
+      {/* Edit */}
+      {isEditing && (
+        <TeacherEdit
           rows={rows}
-          columns={columns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
-          checkboxSelection
-          onCellEditCommit={(params) => console.log(params)}
+          selectedRow={selectedRow}
+          setRows={setRows}
+          setIsEditing={setIsEditing}
         />
-      </Box>
-    </>
+      )}
+    </div>
   );
 }
+
+export default TeacherTable;

@@ -36,6 +36,7 @@ const Main = () => {
   return (
     <div className="maincontainer">
       <div id="main" className={classes.rootcontainer} p={0}>
+        <div className="overlay"></div>
         <video className={classes.video} src={cs} autoPlay loop muted />
         <div className={classes.content}>
           <Typography

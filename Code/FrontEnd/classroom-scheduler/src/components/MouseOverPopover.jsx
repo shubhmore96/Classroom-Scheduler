@@ -11,13 +11,14 @@ import {
   List,
   ListItem,
   ListItemAvatar,
+  Link,
 } from "@mui/material";
 import ListItemText from "@mui/material/ListItemText";
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 import TeacherPhoto from "../Assets/images/TeacherPhoto.png";
 
-export default function MouseOverPopover() {
+export default function MouseOverPopover(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -82,7 +83,7 @@ export default function MouseOverPopover() {
                 </CardContent>
                 <CardActions>
                   <Button size="small">
-                    <Typography variant="body2">Hi &#128075;! Lucy</Typography>
+                    <Typography variant="body2">&#128075; Hi, {props.first_name}</Typography>
                   </Button>
                 </CardActions>
               </div>
@@ -102,7 +103,9 @@ export default function MouseOverPopover() {
                 <LogoutIcon />
               </Avatar>
             </ListItemAvatar>
+           <Link href="/SignOut" underline="none">
             <ListItemText primary="Signout" />
+            </Link>
           </ListItem>
         </List>
       </Popover>

@@ -3,6 +3,7 @@ import ViewTimelineIcon from '@mui/icons-material/ViewTimeline';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import PsychologyAltIcon from '@mui/icons-material/PsychologyAlt';
 import EventNoteIcon from '@mui/icons-material/EventNote';
+import AssignmentIcon from '@mui/icons-material/Assignment';
 
 export const CommonHeaderData=[
     {
@@ -38,38 +39,37 @@ export const AdminNavbarData=[
     },
     {
         icon:<EventNoteIcon />,
-        title:"Calender",
-        link:"/Acalender"
+        title:"To Do",
+        link:"/UnderService"
     },
 ]
 
 export const StudentHeaderData=[
     {
-        title:"To Do",
-        link:"#contact"
+        title:"Calender",
+        link:"/static-calender"
     },
     {
-        title:"Notification",
+        title:"To Do",
         link:"#faq"
     }
 ]
 
 export const StudentNavbarData=[
     {
+        icon:<GridViewIcon />,
         title:"Dashboard",
-        link:'#dashboard'
+        link:'/StudentDashboard'
     },
     {
-        title:"Timetable",
-        link:"/timetable"
+        icon:<ViewTimelineIcon />,
+        title:"Subject Info",
+        link:"/Subject"
     },
     {
+        icon:<AssignmentIcon />,
         title:"Assignment",
-        link:"/assignment"
-    },
-    {
-        title:"Calender",
-        link:"/calender"
+        link:"/UnderService"
     },
 ]
 
@@ -86,19 +86,18 @@ export const TeacherHeaderData=[
 
 export const TeacherNavbarData=[
     {
+        icon:<GridViewIcon />,
         title:"Dashboard",
-        link:'#dashboard'
+        link:'/TeacherDashboard'
     },
     {
+        icon:<ViewTimelineIcon />,
         title:"Timetable",
-        link:"/timetable"
+        link:"/Ttimetable"
     },
     {
+        icon:<AssignmentIcon />,
         title:"Assignment",
-        link:"/assignmentUpload"
-    },
-    {
-        title:"Calender",
-        link:"/calender"
+        link:"/UnderService"
     },
 ]

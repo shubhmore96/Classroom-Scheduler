@@ -19,8 +19,8 @@ const FAQ=()=>{
             </Typography>
         </div>
               { FAQData.map((link,val)=>(
-              <div>
-                <Accordion expanded={expanded === link.number} onChange={handleChange(link.number)} key={val}>
+              <div key={val}>
+                <Accordion expanded={expanded === link.number} onChange={handleChange(link.number)} >
                  <AccordionSummary expandIcon={<ExpandMoreIcon />} >
                     <Typography fontSize={'20px'}>
                         {link.question}

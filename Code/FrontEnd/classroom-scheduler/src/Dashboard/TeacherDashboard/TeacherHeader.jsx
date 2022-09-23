@@ -17,6 +17,8 @@ import { TeacherHeaderData } from "../Components/CommonHeaderData";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import TeacherNavbarDrawer from "./TeacherNavbarDrawer";
 import PersonIcon from "@mui/icons-material/Person";
+import MouseOverPopover from "../../components/MouseOverPopover";
+import CalenderPopover from "../../components/CalenderPopover";
 
 const TeacherHeader = () => {
   const [value, setValue] = useState();
@@ -24,18 +26,18 @@ const TeacherHeader = () => {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
-  console.log(isMatch);
+  const data = JSON.parse(sessionStorage.getItem("teacher"));
+  console.log(data);
 
   return (
     <>
       <div id="header">
         <AppBar
           sx={{
-            backgroundImage:
-              "linear-gradient(23deg, rgba(2,0,36,1) 0%, rgba(19,101,204,0.9026961126247374) 40%, rgba(0,212,255,1) 100%);",
+            background: "rgb(255, 174, 109)",
           }}
         >
-          <Toolbar>
+          <Toolbar variant="dense">
             {isMatch ? (
               <>
                 <Typography>
@@ -55,30 +57,24 @@ const TeacherHeader = () => {
                   style={{ display: "flex", alignItems: "center" }}
                 >
                   <Typography>
-                    <ImportContactsIcon />
+                    <ImportContactsIcon sx={{ fontSize: "36px" }} />
                   </Typography>
                 </Grid>
                 <Grid item xs={2} display="flex">
                   <Tabs
                     indicatorColor="secondary"
-                    textColor="inherit"
+                    textColor="white"
                     value={value}
                     onChange={(e, val) => setValue(val)}
                   >
-                    {TeacherHeaderData.map((link, index) => (
-                      <Tab
-                        key={index}
-                        label={link.title}
-                        href={link.link}
-                      ></Tab>
-                    ))}
+                    <CalenderPopover />
+                    {/* <TodoPopover /> */}
                   </Tabs>
                 </Grid>
                 <Grid item xs={1}>
                   <Box display="flex">
-                    <Avatar>
-                      <PersonIcon />
-                    </Avatar>
+                    {/* <Button variant="contained" onClick={()=>setOpen(true)}>Profile</Button> */}
+                    <MouseOverPopover first_name={data.first_name} />
                   </Box>
                 </Grid>
               </Grid>

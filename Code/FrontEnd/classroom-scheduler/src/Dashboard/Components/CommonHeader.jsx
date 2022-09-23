@@ -19,11 +19,17 @@ import CommonNavbarDrawer from "./CommonNavbarDrawer";
 import PersonIcon from "@mui/icons-material/Person";
 import MouseOverPopover from "../../components/MouseOverPopover";
 import CalenderPopover from "../../components/CalenderPopover";
+import { useSelector } from "react-redux";
 
 
 
 const CommonHeader = () => {
   const [value, setValue] = useState();
+  //const userDetails=useSelector((state)=>state.adminLogin.user);
+  const data=JSON.parse(sessionStorage.getItem('admin'));
+  //console.log('admin header',userDetails);
+  console.log(data);
+  
   const [open, setOpen] = useState(false);
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
@@ -75,7 +81,7 @@ const CommonHeader = () => {
                 <Grid item xs={1}>
                   <Box display="flex">
                     {/* <Button variant="contained" onClick={()=>setOpen(true)}>Profile</Button> */}
-                    <MouseOverPopover />
+                    <MouseOverPopover first_name={data.first_name} />
                   </Box>
                 </Grid>
               </Grid>

@@ -1,13 +1,11 @@
 import {
-  Avatar,
   Drawer,
   IconButton,
-  Link,
+  InputAdornment,
   List,
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  useTheme,
 } from "@mui/material";
 import React, { useState } from "react";
 import { StudentNavbarData } from "../Components/CommonHeaderData";
@@ -20,7 +18,12 @@ const StudentNavbarDrawer = () => {
     <>
       <Drawer
         PaperProps={{
-          sx: { backgroundColor: "whitesmoke" },
+          sx: {
+            backgroundColor: "rgb(255, 250, 231)",
+            width: "20%",
+            alignContent:'center',
+            paddingTop:'60px'
+          },
         }}
         open={data}
         onClose={() => setData(false)}
@@ -33,18 +36,30 @@ const StudentNavbarDrawer = () => {
               divider
               onClick={() => setData(!data)}
             >
+              <InputAdornment position="start">
+              {link.icon}
+            </InputAdornment>
               <ListItemIcon>
-                <ListItemText>{link.title}</ListItemText>
+                <ListItemText
+                  primaryTypographyProps={{
+                    fontSize: "18px",
+                  }}
+                >
+                  {link.title}
+                </ListItemText>
               </ListItemIcon>
             </ListItemButton>
           ))}
         </List>
       </Drawer>
       <IconButton
-        sx={{ marginLeft: "auto", color: "white" }}
+        sx={{
+          marginLeft: "auto",
+          color: "white",
+        }}
         onClick={() => setData(!data)}
       >
-        <MenuIcon />
+        <MenuIcon sx={{ fontSize: "40px" }} />
       </IconButton>
     </>
   );

@@ -1,7 +1,7 @@
 export const HeaderData=[
     {
         title:"Home",
-        link:"/"
+        link:"#main"
     },
     {
         title:"About",

@@ -1,68 +1,83 @@
 import React, { useState } from "react";
-import {AppBar,Box,Button,Grid,Tab,Tabs,Toolbar, Typography,Modal, useTheme,useMediaQuery, Avatar} from "@mui/material"
-import { StudentHeaderData } from "../Components/CommonHeaderData";
-import ImportContactsIcon from '@mui/icons-material/ImportContacts';
+import {
+  AppBar,
+  Box,
+  Grid,
+  Tabs,
+  Toolbar,
+  Typography,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
+import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import StudentNavbarDrawer from "./StudentNavbarDrawer";
-import PersonIcon from '@mui/icons-material/Person';
+import CalenderPopover from "../../components/CalenderPopover";
+import MouseOverPopover from "../../components/MouseOverPopover";
 
-const StudentHeader=()=>{
-    const [value,setValue]=useState();
-    const [open,setOpen]=useState(false);
-    const theme=useTheme();
-    const isMatch=useMediaQuery(theme.breakpoints.down('md'));
+const StudentHeader = () => {
+  const [value, setValue] = useState();
+  const theme = useTheme();
+  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
-    console.log(isMatch);
+  const data = JSON.parse(sessionStorage.getItem("student"));
+  console.log(data);
 
-    return(
-        <>
-        <div id="header">
+  console.log(isMatch);
+
+  return (
+    <>
+      <div id="header">
         <AppBar
-            sx={{
-                backgroundImage:"linear-gradient(23deg, rgba(2,0,36,1) 0%, rgba(19,101,204,0.9026961126247374) 40%, rgba(0,212,255,1) 100%);"
-            }}        
+          sx={{
+            background: "rgb(255, 174, 109)",
+          }}
         >
-            <Toolbar>
-              {isMatch ? 
-               ( <>
+          <Toolbar variant="dense">
+            {isMatch ? (
+              <>
                 <Typography>
-                     <ImportContactsIcon />
+                  <ImportContactsIcon />
                 </Typography>
-                <StudentNavbarDrawer  />
-                </>
-                ) 
-              : (
-              <Grid container sx={{placeItems:'center'}}>
-                    <Grid item xs={1}>
-                    <StudentNavbarDrawer />
-                    </Grid>
-                    {/* <Grid item xs={1} /> */}
-                    <Grid item xs={8} style={{ display: "flex", alignItems: "center" }}>
-                        <Typography>
-                            <ImportContactsIcon />
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={2} display="flex">
-                        <Tabs indicatorColor="secondary" textColor="inherit" value={value} onChange={(e,val)=>setValue(val)}>
-                            {StudentHeaderData.map((link,index)=>(
-                                <Tab key={index} label={link.title} href={link.link}></Tab>
-                            ))}
-                        </Tabs>
-                    </Grid>
-                    <Grid item xs={1}>
-                        <Box display="flex">
-                          {/* <Button variant="contained" onClick={()=>setOpen(true)}>Profile</Button> */}
-                            <Avatar>
-                            <PersonIcon />
-                            </Avatar>
-                        </Box>
-                    </Grid>
+                <StudentNavbarDrawer />
+              </>
+            ) : (
+              <Grid container sx={{ placeItems: "center" }}>
+                <Grid item xs={1}>
+                  <StudentNavbarDrawer />
                 </Grid>
-                )}
-            </Toolbar>
+                {/* <Grid item xs={1} /> */}
+                <Grid
+                  item
+                  xs={8}
+                  style={{ display: "flex", alignItems: "center" }}
+                >
+                  <Typography>
+                    <ImportContactsIcon sx={{ fontSize: "36px" }} />
+                  </Typography>
+                </Grid>
+                <Grid item xs={2} display="flex">
+                  <Tabs
+                    indicatorColor="secondary"
+                    textColor="white"
+                    value={value}
+                    onChange={(e, val) => setValue(val)}
+                  >
+                    <CalenderPopover />
+                    {/* <TodoPopover /> */}
+                  </Tabs>
+                </Grid>
+                <Grid item xs={1}>
+                  <Box display="flex">
+                    <MouseOverPopover first_name={data.first_name} />
+                  </Box>
+                </Grid>
+              </Grid>
+            )}
+          </Toolbar>
         </AppBar>
-        </div>
-        </>
-    )
-}
+      </div>
+    </>
+  );
+};
 
 export default StudentHeader;
