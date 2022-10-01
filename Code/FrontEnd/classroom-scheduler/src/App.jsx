@@ -36,7 +36,6 @@ const App = () => {
           <Header></Header>
           <Main></Main>
           <Footer></Footer>
-          {/* <CommonForm /> */}
         </div>
       )}
     </div>

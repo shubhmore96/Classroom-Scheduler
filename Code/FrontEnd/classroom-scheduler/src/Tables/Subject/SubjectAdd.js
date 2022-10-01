@@ -34,7 +34,7 @@ const adminData = JSON.parse(sessionStorage.getItem("admin"));
       name,
       duration,
     };
-     rows.push(newSubject);
+     //rows.push(newSubject);
     const unewSubject = { ...newSubject, classcoordinator_id:adminData.classcoordinator_id };
     console.log("Add", unewSubject);
 
@@ -42,6 +42,7 @@ const adminData = JSON.parse(sessionStorage.getItem("admin"));
       .then((response) => {
         console.log(response);
         console.log("success log");
+        window.location.reload();
       })
       .catch((error) => {
         console.log(error);

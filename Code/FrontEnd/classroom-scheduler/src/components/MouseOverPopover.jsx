@@ -92,14 +92,6 @@ export default function MouseOverPopover(props) {
           <ListItem>
             <ListItemAvatar>
               <Avatar>
-                <PersonIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="Profile" />
-          </ListItem>
-          <ListItem>
-            <ListItemAvatar>
-              <Avatar>
                 <LogoutIcon />
               </Avatar>
             </ListItemAvatar>

@@ -47,7 +47,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const TeacherDashboard = () => {
-  const teacherData = JSON.parse(sessionStorage.getItem("teacher"));
+  var teacherData = JSON.parse(sessionStorage.getItem("teacher"));
   const [loading, setLoading] = useState(false);
   const [studentCount, setStudentCount] = useState();
   const [teacherCount, setTeacherCount] = useState();
@@ -136,9 +136,6 @@ const TeacherDashboard = () => {
             >
               {/* <Cards /> */}
               <Box style={{ marginTop: "100px" }}>
-                <Typography variant="h2" align="center" pb={2}>
-                  Welcome to {adminData.institute_name}
-                </Typography>
                 <Container className="cardGrid" sx={{ mt: 2 }}>
                   <Grid
                     container

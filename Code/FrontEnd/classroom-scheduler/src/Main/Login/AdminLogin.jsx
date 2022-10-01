@@ -54,10 +54,7 @@ export default function AdminLogin() {
 
     adminLogin(user)
       .then((response) => {
-        console.log("success log");
         toast.success("user login successfully");
-        console.log(response);
-        dispatch(adminLoginRequest(response));
         sessionStorage.setItem("admin", JSON.stringify(response));
         navigate("/AdminDashboard");
       })
@@ -68,9 +65,6 @@ export default function AdminLogin() {
       });
   };
 
-  // useEffect(()=>{
-  //   fetchProducts();
-  // },[]);
 
   const style = {
     position: "absolute",

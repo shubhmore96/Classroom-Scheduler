@@ -28,6 +28,7 @@ function TeacherList({ rows, handleEdit, handleDelete }) {
                 {rows.length > 0 ? (
                   rows.map((data, i) => (
                     <tr key={i}>
+                      {console.log("Data:",data)}
                       <td>{i + 1}</td>
                       <td>{data.date}</td>
                       <td>{data.start_time}</td>

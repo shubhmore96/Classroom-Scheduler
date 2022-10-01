@@ -4,6 +4,7 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import PsychologyAltIcon from '@mui/icons-material/PsychologyAlt';
 import EventNoteIcon from '@mui/icons-material/EventNote';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import Person2Icon from '@mui/icons-material/Person2';
 
 export const CommonHeaderData=[
     {
@@ -42,6 +43,11 @@ export const AdminNavbarData=[
         title:"To Do",
         link:"/UnderService"
     },
+    {
+        icon:<Person2Icon />,
+        title:"Profile",
+        link:"/AdminProfile"
+    },
 ]
 
 export const StudentHeaderData=[
@@ -71,6 +77,11 @@ export const StudentNavbarData=[
         title:"Assignment",
         link:"/UnderService"
     },
+    {
+        icon:<Person2Icon />,
+        title:"Profile",
+        link:"/StudentProfile"
+    },
 ]
 
 export const TeacherHeaderData=[
@@ -99,5 +110,10 @@ export const TeacherNavbarData=[
         icon:<AssignmentIcon />,
         title:"Assignment",
         link:"/UnderService"
+    },
+    {
+        icon:<Person2Icon />,
+        title:"Profile",
+        link:"/TeacherProfile"
     },
 ]

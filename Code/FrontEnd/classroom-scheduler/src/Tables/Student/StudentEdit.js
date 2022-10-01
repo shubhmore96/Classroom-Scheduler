@@ -55,7 +55,7 @@ function StudentEdit({ rows, selectedRow, setRows, setIsEditing }) {
       classcoordinator_id: adminData.classcoordinator_id,
       student_id: selectedRow.student_id,
     };
-    console.log("in edit: ", udata);
+    
     editStudentData(udata)
       .then((response) => {
         Swal.fire({

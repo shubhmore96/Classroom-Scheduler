@@ -13,18 +13,12 @@ import React, { useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import { purple } from "@mui/material/colors";
 import { Box } from "@mui/system";
-import { CardData } from "./CardData";
-//import { createDispatchHook } from "react-redux";
-import TeacherTable from "../../Tables/Teacher/TeacherTable";
 import CommonHeader from "../Components/CommonHeader";
 import Footer from "../../Footer/footer";
-import StudentTable from "../../Tables/Student/StudentTable";
 import SubjectTable from "../../Tables/Subject/SubjectTable";
-import AssignmentTable from "../../Tables/Assignmnet/AssignmentTable";
-import Barchart from "../../components/Barchart";
 import Piechart from "../../components/Piechart";
 import Linechart from "../../components/Linechart";
-//import { useSelector } from "react-redux";
+
 import { useState } from "react";
 import { ClockLoader } from "react-spinners";
 import img1 from "../../Assets/images/student.png";
@@ -33,16 +27,6 @@ import img3 from "../../Assets/images/s.png";
 import img4 from "../../Assets/images/Assignments.jpg";
 
 import {noOfStudentsData, noOfSubjectsData, noOfTeachersData} from "../../Services/user-service"
-// import Todo from "./pages/Todo";
-
-const Item = styled(Paper)(({ theme }) => ({
-  background: "rgb(239, 239, 239)",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-  paddingTop: "25%",
-}));
 
 const AdminDashboard = () => {
   // const cards = [1, 2, 3, 4];
@@ -51,22 +35,19 @@ const AdminDashboard = () => {
   const [studentCount,setStudentCount]=useState();
   const [teacherCount,setTeacherCount]=useState();
   const [subjectCount,setSubjectCount]=useState();
-  const [assignmentCount,setAssignmentCount]=useState();
 
   useEffect(() => {
-    noOfStudentsData(studentCount)
+    noOfStudentsData(adminData)
     .then((response) => {
       setStudentCount(response);
-      console.log("Count ",response,studentCount)
       setLoading(false);
     })
     .catch((error) => {
-      console.log(error);
       console.log("Error Log");
     });
 
     //Teacher Count
-    noOfTeachersData(teacherCount)
+    noOfTeachersData(adminData)
     .then((response) => {
       setTeacherCount(response);
       setLoading(false);
@@ -77,7 +58,7 @@ const AdminDashboard = () => {
     });
 
      //SubjectCount
-     noOfSubjectsData(subjectCount)
+     noOfSubjectsData(adminData)
      .then((response) => {
        setSubjectCount(response);
        setLoading(false);
@@ -126,9 +107,9 @@ const AdminDashboard = () => {
           >
             {/* <Cards /> */}
             <Box style={{ marginTop: "100px" }}>
-              <Typography variant="h2" align="center" pb={2}>
-                Welcome to {adminData.institute_name}
-              </Typography>
+              {/* <Typography variant="h2" align="center" pb={2}>
+                 Welcome to {adminData.institute_name} 
+              </Typography> */}
               <Container className="cardGrid" sx={{ mt: 2 }}>
                 <Grid
                   container

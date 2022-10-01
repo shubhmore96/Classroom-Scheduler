@@ -41,7 +41,6 @@ export default function AdminSignUp() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    //const data = new FormData(event.currentTarget);
     console.log(data);
 
     if(error.isError){
@@ -54,7 +53,6 @@ export default function AdminSignUp() {
     }
 
     signUp(data).then((response)=>{
-      console.log(response);
       console.log("success log");
       toast.success("user registered successfully");
     }).catch((error)=>{

@@ -14,7 +14,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import AdminDashboard from "../Dashboard/AdminDashboard/AdminDashboard";
 import Login from "../Main/Login/Login";
 import TeacherRegister from "../Dashboard/AdminDashboard/Registration/TeacherRegister";
-import Calender from "../Dashboard/Components/Calender";
 import TeacherDashboard from "../Dashboard/TeacherDashboard/TeacherDashboard";
 import StudentDashboard from "../Dashboard/StudentDashboard/StudentDashboard";
 import { ThemeProvider } from "@mui/material";
@@ -32,6 +31,9 @@ import Construction from "../components/ConstructionPage";
 import AAssignment from "../Dashboard/AdminDashboard/pages/AAssignment";
 import TTimetable from "../Dashboard/TeacherDashboard/TTimetable";
 import SSubjectTable from "../Dashboard/StudentDashboard/SSubjectTable"
+import AdminProfile from "../Dashboard/Components/AdminProfile";
+import StudentProfile from "../Dashboard/StudentDashboard/StudentProfile";
+import TeacherProfile from "../Dashboard/TeacherDashboard/TeacherProfile";
 
 const App2=()=>{
     return(
@@ -58,6 +60,7 @@ const App2=()=>{
         <Route path="/TeacherRegister" element={<TeacherRegister />} />
         <Route path="/Acalender" element={<ACalender />} />
         <Route path="/AAssignment" element={<AAssignment />} />
+        <Route path="/AdminProfile" element={<AdminProfile />} />
         
         <Route path="/SignOut"   element={<SignOut />} />
         
@@ -65,16 +68,19 @@ const App2=()=>{
         {/* Teacher Dashboard Routing */}
         <Route path="/TeacherDashboard" element={<TeacherDashboard />} />
         <Route path="/Ttimetable" element={<TTimetable />} />
+        <Route path="/TeacherProfile" element={<TeacherProfile />} />
 
         {/* Student Dashboard Routing */}
         <Route path="/StudentDashboard" element={<StudentDashboard />} />
         <Route path="/Subject" element={<SSubjectTable />} />
+        <Route path="/StudentProfile" element={<StudentProfile />} />
         
         
         <Route path="/todo" element={<Todo />} />
         <Route path="/static-calender" element={<CustomDay />} />
         <Route path="/CalenderPopover" element={<CalenderPopover />} />
         <Route path="/UnderService" element={<Construction />} />
+        
 
       </Routes>
       </ThemeProvider>

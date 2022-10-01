@@ -9,9 +9,9 @@ const Footer=()=>{
         <footer className="common-footer" style={{backgroundColor:'rgb(255, 174, 109)',padding:'50px 0px',marginTop:'50px'}}>
             <Typography variant="h6" align="center" gutterBottom>@Classroom-Scheduler</Typography>
             <Typography variant="subtitle1" align="center" color='GrayText'>
-                        Something to give footer a purpose
+                        Be Educated So That You Can Change The World
             </Typography>
-            <Copyright sx={{ mt: 2, mb: 2 }} />
+            <Copyright sx={{ mt: 1, mb: 1 }} />
         </footer> 
         </div>
         </>

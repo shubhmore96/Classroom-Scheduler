@@ -23,7 +23,6 @@ function StudentTable() {
   useEffect(() => {
     getStudentData(rows)
       .then((response) => {
-        console.log("rows: ", response);
         setRows(response);
         setLoading(false);
       })
