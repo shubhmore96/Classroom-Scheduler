@@ -53,4 +53,9 @@ public class StudentImpl implements StudentServices{
 		return studentRepo.findByUsernamePassword(username, password);
 	}
 
+	@Override
+	public int getStudentCount(int classcoordinator_id) {
+		return studentRepo.countOfStudent(classcoordinator_id);
+	}
+
 }

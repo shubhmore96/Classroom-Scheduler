@@ -41,4 +41,9 @@ public class SubjectInfoImpl implements SubjectServices{
 		return this.subjectRepo.findByClassCoordinator(classcoordinator_id);
 	}
 
+	@Override
+	public int getSubjectCount(int classcoordinator_id) {
+		return this.subjectRepo.countOfSubject(classcoordinator_id);
+	}
+
 }

@@ -26,7 +26,8 @@ public class Timetable {
 	String subject_name;
 	
 	@Column
-	int teacher_id;
+	@NotEmpty(message = "Field must not be null")
+	String teacher_name;
 	
 	@Column
 	@NotEmpty(message = "Field must not be null")
@@ -49,12 +50,13 @@ public class Timetable {
 	}
 
 	public Timetable(int timetable_id, @NotEmpty(message = "Field must not be null") String subject_name,
-			int teacher_id, @NotEmpty(message = "Field must not be null") String start_time,
+			@NotEmpty(message = "Field must not be null") String teacher_name,
+			@NotEmpty(message = "Field must not be null") String start_time,
 			@NotEmpty(message = "Field must not be null") String end_time, int classcoordinator_id, Date date) {
 		super();
 		this.timetable_id = timetable_id;
 		this.subject_name = subject_name;
-		this.teacher_id = teacher_id;
+		this.teacher_name = teacher_name;
 		this.start_time = start_time;
 		this.end_time = end_time;
 		this.classcoordinator_id = classcoordinator_id;
@@ -77,12 +79,12 @@ public class Timetable {
 		this.subject_name = subject_name;
 	}
 
-	public int getTeacher_id() {
-		return teacher_id;
+	public String getTeacher_name() {
+		return teacher_name;
 	}
 
-	public void setTeacher_id(int teacher_id) {
-		this.teacher_id = teacher_id;
+	public void setTeacher_name(String teacher_name) {
+		this.teacher_name = teacher_name;
 	}
 
 	public String getStart_time() {

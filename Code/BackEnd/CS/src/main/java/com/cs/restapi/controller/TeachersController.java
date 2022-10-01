@@ -38,17 +38,17 @@ public class TeachersController {
 		return this.teacherService.getTeacher(teacher_id);
 	}
 	
-	@PostMapping("/addTeacher")
+	@PostMapping("/add")
 	public Teachers registerTeacher(@RequestBody Teachers teacher) {
 		return this.teacherService.addTeacher(teacher);
 	}
 	
-	@PutMapping("/updateTeacher")
+	@PutMapping("/update")
 	public Teachers updateTeacher(@RequestBody Teachers teacher) {
 		return this.teacherService.addTeacher(teacher);
 	}
 	
-	@DeleteMapping("/deleteTeacher/{teacher_id}")
+	@DeleteMapping("/delete/{teacher_id}")
 	public ResponseEntity<HttpStatus> deleteTeacher(@PathVariable int teacher_id){
 		try {
 			this.teacherService.deleteTeacher(teacher_id);
@@ -74,5 +74,10 @@ public class TeachersController {
 			System.out.println("inside else");
 			return new ResponseEntity<Teachers>(cc, HttpStatus.BAD_REQUEST);
 		}
+	}
+	
+	@GetMapping("/getCount/{classcoordinator_id}")
+	public int getTeacherCount(@PathVariable int classcoordinator_id) {
+		return this.teacherService.getTeacherCount(classcoordinator_id);
 	}
 }

@@ -43,7 +43,7 @@ public class TimetableController {
 		return this.timetableService.deleteTimetable(timetable_id);
 	}
 	
-	@GetMapping("/getByClassCoordinator/{classcoordinator_id}")
+	@GetMapping("/get/{classcoordinator_id}")
 	public List<Timetable> getByClassCoordinator(@PathVariable int classcoordinator_id){
 		return this.timetableService.getByClassCoordinator(classcoordinator_id);
 	}

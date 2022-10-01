@@ -15,4 +15,7 @@ public interface TeachersDAO extends JpaRepository<Teachers, Integer>{
 	
 	@Query("SELECT u FROM Teachers u WHERE u.username = ?1 and u.password = ?2")
 	public Teachers findByUsernamePassword(String username,String password);
+	
+	@Query("SELECT count(*) FROM Teachers u WHERE u.classcoordinator_id = ?1")
+	public 	int countOfTeacher(int classcoordinator_id);
 }

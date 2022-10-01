@@ -50,11 +50,13 @@ public class ClassCoordinator{
 	String password;
 	
 	@Column(unique = true)
-	@Email(message = "Please input proper format")
+	@Pattern(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$", message = "Please input proper format")
+	@NotEmpty(message = "Field must not be null")
 	String email_id;
 	
 	@Column
 	@Pattern(regexp = "^$|[0-9]{10}",message = "Please input proper format")
+	@NotEmpty(message = "Field must not be null")
 	String phone;
 
 	public ClassCoordinator() {

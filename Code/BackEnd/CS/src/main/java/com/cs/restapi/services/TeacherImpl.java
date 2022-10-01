@@ -53,4 +53,9 @@ public class TeacherImpl implements TeacherServices {
 		return teacherRepo.findByUsernamePassword(username, password);
 	}
 
+	@Override
+	public int getTeacherCount(int classcoordinator_id) {
+		return this.teacherRepo.countOfTeacher(classcoordinator_id);
+	}
+
 }

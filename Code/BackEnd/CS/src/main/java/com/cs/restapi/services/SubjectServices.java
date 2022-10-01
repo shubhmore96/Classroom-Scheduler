@@ -16,4 +16,6 @@ public interface SubjectServices {
 	public List<SubjectInfo> getAllSubject();
 	
 	public List<SubjectInfo> getSubjectByClassCoordinator(int classcoordinator_id);
+	
+	public int getSubjectCount(int classcoordinator_id);
 }

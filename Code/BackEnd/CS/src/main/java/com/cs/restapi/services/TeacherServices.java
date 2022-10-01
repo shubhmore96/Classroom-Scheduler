@@ -19,4 +19,6 @@ public interface TeacherServices {
 	public List<Teachers> getTeacherByClassCoordinator(int classcoordinator_id);
 	
 	public Teachers getByUsernamePassword(String username,String password);
+	
+	public int getTeacherCount(int classcoordinator_id);
 }

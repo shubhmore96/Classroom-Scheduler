@@ -37,17 +37,17 @@ public class StudentsController {
 		return this.studentService.getStudent(student_id);
 	}
 	
-	@PostMapping("/addStudent")
+	@PostMapping("/add")
 	public Students addStudent(@RequestBody Students student) {
 		return this.studentService.addStudent(student);
 	}
 	
-	@PutMapping("/updateStudent")
+	@PutMapping("/update")
 	public Students updateStudent(@RequestBody Students student) {
 		return this.studentService.updateStudent(student);
 	}
 	
-	@DeleteMapping("/deleteStudent/{student_id}")
+	@DeleteMapping("/delete/{student_id}")
 	public ResponseEntity<HttpStatus> deleteTeacher(@PathVariable int student_id){
 		try {
 			this.studentService.deleteStudent(student_id);
@@ -67,11 +67,14 @@ public class StudentsController {
 	public ResponseEntity<Students> signIn(@RequestBody UserInfo user) {
 		Students cc=this.studentService.getByUsernameAndPassword(user.getUsername(), user.getPassword());
 		if(cc!=null) {
-			System.out.println("inside if");
 			return new ResponseEntity<Students>(cc, HttpStatus.ACCEPTED);
 		}else {
-			System.out.println("inside else");
 			return new ResponseEntity<Students>(cc, HttpStatus.BAD_REQUEST);
 		}
+	}
+	
+	@GetMapping("/getCount/{classcoordinator_id}")
+	public int getStudentCount(@PathVariable int classcoordinator_id) {
+		return this.studentService.getStudentCount(classcoordinator_id);
 	}
 }

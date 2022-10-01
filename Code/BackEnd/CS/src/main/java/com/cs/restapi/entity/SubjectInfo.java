@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.UniqueElements;
 
 @Entity
 @Table(name = "subject_info")
@@ -22,6 +25,7 @@ public class SubjectInfo {
 	String name;
 	
 	@Column
+	@NotNull(message = "Field cannot be null")
 	int duration;
 	
 	@Column

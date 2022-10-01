@@ -69,10 +69,8 @@ public class ClassCoordinatorController {
 	public ResponseEntity<ClassCoordinator> signIn(@RequestBody UserInfo user) {
 		ClassCoordinator cc=this.service.getByUsernameAndPassword(user.getUsername(), user.getPassword());
 		if(cc!=null) {
-			System.out.println("inside if");
 			return new ResponseEntity<ClassCoordinator>(cc, HttpStatus.ACCEPTED);
 		}else {
-			System.out.println("inside else");
 			return new ResponseEntity<ClassCoordinator>(cc, HttpStatus.BAD_REQUEST);
 		}
 	}
