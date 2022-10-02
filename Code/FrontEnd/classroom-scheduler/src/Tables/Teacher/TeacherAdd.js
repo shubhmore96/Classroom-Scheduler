@@ -44,7 +44,6 @@ function TeacherAdd({ rows, setRows, setIsAdding }) {
       email_id,
       phone,
     };
-     rows.push(newTeacher);
     const unewTeacher = { ...newTeacher, classcoordinator_id: adminData.classcoordinator_id };
     console.log("Add",adminData.classcoordinator_id, unewTeacher);
 
@@ -52,6 +51,7 @@ function TeacherAdd({ rows, setRows, setIsAdding }) {
       .then((response) => {
         console.log(response);
         console.log("success log");
+        window.location.reload();
       })
       .catch((error) => {
         console.log(error);
