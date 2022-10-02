@@ -27,3 +27,9 @@
 	<li>You will be on Landing page of Classroom-Scheduler App.</li>
 	<li>Project is ready to use.</li>
 </ol>
+<hr>
+<h2>Note</h2>
+  <ol>
+	<li>You can sign up as new admin and create your own classroom by adding teachers,students and subjects.</li>
+	<li>Or you can use the predefined dataset from the database. For Login details please check Docs Folder >> Blackbox Testing excel file </li>
+ </ol>
