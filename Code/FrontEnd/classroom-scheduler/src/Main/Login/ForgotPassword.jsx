@@ -7,14 +7,6 @@ import {TextField, Typography} from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Copyright } from '@mui/icons-material';
 
-// const bull = (
-//   <Box
-//     component="span"
-//     sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-//   >
-//     •
-//   </Box>
-// );
 
 const theme = createTheme();
 

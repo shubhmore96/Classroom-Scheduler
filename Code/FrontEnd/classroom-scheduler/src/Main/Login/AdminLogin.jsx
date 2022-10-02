@@ -11,20 +11,15 @@ import {
   Box,
   Typography,
   Container,
-  Paper,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Copyright from "../../Footer/Copyright";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { adminLogin } from "../../Services/user-service";
-import { display } from "@mui/system";
-import { useEffect } from "react";
-import { adminLoginRequest } from "../../Services/redux/actions/adminActions";
 
 const theme = createTheme();
 
@@ -35,7 +30,6 @@ export default function AdminLogin() {
   });
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setUser((prevState) => ({
