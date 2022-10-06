@@ -37,3 +37,13 @@
 	<li>Or you can use the predefined dataset from the database. </li>
  </ol>
 <hr>
+<h2>Contributors</h2>
+  <ul>
+	<li>Shubham More</li>
+	<li>Milind Kondekar </li>
+	<li>Prachi Rathod</li>
+	<li>Sameer Dhumal</li>
+	<li>Rushikesh Kadam</li>
+	<li>Gaurav Hedge</li>
+ </ul>
+<hr>
