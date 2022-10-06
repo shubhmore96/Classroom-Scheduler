@@ -39,7 +39,9 @@
 <hr>
 <h2>Contributors</h2>
   <ul>
-	<li>Shubham More</li>
+	<li><a href="https://github.com/remarkablemark">
+ 		<img src="[https://github.com/remarkablemark.png?size=50](https://avatars.githubusercontent.com/u/95762616?v=4)">
+		</a> Shubham More</li>
 	<li>Milind Kondekar </li>
 	<li>Prachi Rathod</li>
 	<li>Sameer Dhumal</li>
