@@ -16,10 +16,10 @@
 	<li>Clone project using link in git - https://github.com/shubhmore96/Classroom-Scheduler.git </li>
 	<li>Open folder Database</li>
 	<li>import classroom_scheduler.sql file in MySQL database.</li>
-	<li>Use command "mysql -u USER -p DATABASE_NAME < PATH/TO/FILE.sql" (Ensure path save in Environmental Variable..).</li>
+	<li>Use command "mysql -u USER -p DATABASE_NAME < PATH/TO/classroom_scheduler.sql" (Ensure path save in Environmental Variable..).</li>
 	<li>or</li>
 	<li>login in your mysql and run - "create database classroom_scheduler;" command.</li>
-	<li>then run command - "source PATH/TO/FILE.sql" for import sql file from Database Folder.</li>
+	<li>then run command - "source PATH/TO/classroom_scheduler.sql" for import sql file from Database Folder.</li>
 	<li>Open Spring boot and Import CS folder in spring boot.</li>
 	<li>Open CS folder and make changes in "src/main/resources/application.properties" for database connectivity.</li>
 	<li>Go to com.cs.restapi/CsApplication.java file and Run Project as java application.</li>
